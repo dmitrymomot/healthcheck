@@ -8,13 +8,15 @@ build: ## Build health check utility
 	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix nocgo -o healthchecker ./cmd/main.go
 
 docker: ## Build docker image
-	@docker rmi -f saaskit/alpine:healthcheck
+	@docker rmi -f dmitrymomot/healthcheck:alpine
 	@docker system prune -f
-	@docker build --rm -t saaskit/alpine:healthcheck .
+	@docker build --rm -t dmitrymomot/healthcheck:alpine .
 	@rm -vf healthchecker
 
 push: ## Push image to docker hub
-	@docker push saaskit/alpine:healthcheck
+	@docker tag dmitrymomot/healthcheck:alpine dmitrymomot/healthcheck:latest
+	@docker push dmitrymomot/healthcheck
+	@docker system prune -f
 
 %:
 	@:
