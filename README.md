@@ -1,6 +1,6 @@
 # healthcheck
 
-HTTP health checker
+HTTP health checker for your docker container
 
 ## Usage
 
