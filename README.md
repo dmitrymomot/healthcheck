@@ -24,7 +24,7 @@ HEALTHCHECK_URL=localhost:8080/health \
 docker run -d -p 8080:8080 your-app:latest
 ```
 
-> See example path for more details
+> See `_example` path for more details
 
 ---
 
